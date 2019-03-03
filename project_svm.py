@@ -71,6 +71,9 @@ sc = StandardScaler()
 X_train = sc.fit_transform(X_train)
 X_test = sc.transform(X_test)
 
+y_train = sc.fit(y_train)
+y_test = sc.transform(y_test)
+
 
 # fitting & coba metode-metode kernel
 from sklearn.svm import SVC
@@ -108,7 +111,7 @@ print(poly.score(X_test, y_test))
 
 
 # Model Evaluation
-predictions = poly.predict(X_test)
+predictions = rbf.predict(X_test)
 from sklearn.metrics import classification_report,confusion_matrix
 print(confusion_matrix(y_test,predictions))
 print(classification_report(y_test,predictions))
@@ -141,8 +144,7 @@ clf.fit(X_train, y_train)
 plot_decision_regions(X=X_train, 
                       y=y_train,
                       clf=clf, 
-                      legend=2,
-                      FileExi)
+                      legend=2)
 
 value=1.5
 width=0.75
